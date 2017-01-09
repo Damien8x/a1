@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Summary description for Tip
+/// </summary>
+public class Tip
+{
+
+    public double MealAmount { set; get; }
+    public double TipPercent { set; get; }
+
+    private const double TAXPERCENT = .09;
+ 
+    public Tip()
+    {
+     
+    }
+    public Tip(double meal, double percent)
+    {
+        MealAmount = meal;
+        TipPercent = percent;
+    }
+
+    public double CalculateTax()
+    {
+        return MealAmount * TAXPERCENT;
+    }
+
+    public double CalculateTip()
+    {
+        return MealAmount * TipPercent;
+    }
+
+    public double Total()
+    {
+        return (MealAmount + CalculateTax() + CalculateTip());
+     
+    }
+
+}
